@@ -4,5 +4,5 @@ psycopg[binary]
 pandas
 plotly
 python-dotenv
-streamlit-authenticator
+bcrypt
 pytest
