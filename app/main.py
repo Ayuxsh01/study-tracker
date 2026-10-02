@@ -7,9 +7,11 @@ import streamlit as st
 
 from app.services.auth_service import login, signup
 from app.utils.theme import apply_theme
+from app.utils.analytics_ga import inject_google_analytics
 
 st.set_page_config(page_title="Study Nook", page_icon="study", layout="wide")
 apply_theme()
+inject_google_analytics()
 
 if "user" not in st.session_state:
     st.session_state["user"] = None

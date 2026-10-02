@@ -8,8 +8,10 @@ import streamlit as st
 from app.services.log_service import get_subjects, create_subject
 from app.utils.auth_guard import require_login
 from app.utils.theme import apply_theme
+from app.utils.analytics_ga import inject_google_analytics
 
 apply_theme()
+inject_google_analytics()
 st.title("Manage Subjects")
 
 user_id = require_login()

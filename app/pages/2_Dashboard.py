@@ -15,8 +15,10 @@ from app.services.analytics import (
 )
 from app.utils.auth_guard import require_login
 from app.utils.theme import apply_theme, SUBJECT_COLORS
+from app.utils.analytics_ga import inject_google_analytics
 
 apply_theme()
+inject_google_analytics()
 st.title("Analytics Dashboard")
 
 user_id = require_login()
