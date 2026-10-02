@@ -9,7 +9,9 @@ from app.services.analytics import (
     project_completion_date,
 )
 from app.utils.auth_guard import require_login
+from app.utils.theme import apply_theme, SUBJECT_COLORS
 
+apply_theme()
 st.title("Analytics Dashboard")
 
 user_id = require_login()
@@ -37,6 +39,8 @@ col4.metric("Projected finish", projected.date().isoformat() if projected is not
 
 st.subheader("Hours studied over time")
 fig = px.line(logs, x="date", y="hours_studied", markers=True)
+fig.update_traces(line_color=SUBJECT_COLORS[0], marker_color=SUBJECT_COLORS[0])
+fig.update_layout(plot_bgcolor="white", paper_bgcolor="white", font_family="Nunito")
 st.plotly_chart(fig, use_container_width=True)
 
 st.subheader("All subjects comparison")
@@ -49,5 +53,9 @@ for _, s in subjects.iterrows():
 if all_rows:
     import pandas as pd
     comparison_df = pd.DataFrame(all_rows)
-    fig2 = px.bar(comparison_df, x="subject", y="hours_logged")
+    fig2 = px.bar(
+        comparison_df, x="subject", y="hours_logged",
+        color="subject", color_discrete_sequence=SUBJECT_COLORS,
+    )
+    fig2.update_layout(plot_bgcolor="white", paper_bgcolor="white", font_family="Nunito", showlegend=False)
     st.plotly_chart(fig2, use_container_width=True)

@@ -3,7 +3,9 @@ import streamlit as st
 
 from app.services.log_service import get_subjects, add_log
 from app.utils.auth_guard import require_login
+from app.utils.theme import apply_theme
 
+apply_theme()
 st.title("Log Study Hours")
 
 user_id = require_login()

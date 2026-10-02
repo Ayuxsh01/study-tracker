@@ -2,7 +2,9 @@ import streamlit as st
 
 from app.services.log_service import get_subjects, create_subject
 from app.utils.auth_guard import require_login
+from app.utils.theme import apply_theme
 
+apply_theme()
 st.title("Manage Subjects")
 
 user_id = require_login()

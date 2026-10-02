@@ -1,13 +1,15 @@
 import streamlit as st
 
 from app.services.auth_service import login, signup
+from app.utils.theme import apply_theme
 
-st.set_page_config(page_title="Study Tracker", page_icon="study", layout="wide")
+st.set_page_config(page_title="Study Nook", page_icon="study", layout="wide")
+apply_theme()
 
 if "user" not in st.session_state:
     st.session_state["user"] = None
 
-st.title("Study Tracker")
+st.title("Study Nook")
 
 if st.session_state["user"] is not None:
     user = st.session_state["user"]
