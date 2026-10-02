@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(\"C:/Users/alok1/time tracker/.venv/Scripts/python.exe\" make_pdf.py)"
-    ]
-  }
-}
